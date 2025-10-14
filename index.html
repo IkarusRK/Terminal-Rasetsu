@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico do Núcleo da Rasetsu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        body {
+            background-color: #0d0d0d;
+            color: #00ff41;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            margin: 0;
+            padding: 2rem;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .terminal-window {
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            background: rgba(0, 20, 0, 0.7);
+            border: 2px solid #00ff41;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
+            backdrop-filter: blur(3px);
+            position: relative;
+        }
+        
+        .terminal-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #00ff41;
+            color: #ffffff;
+        }
+
+        #output {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            height: 400px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #00ff41 #0d0d0d;
+        }
+
+        #output::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #output::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+
+        #output::-webkit-scrollbar-thumb {
+            background-color: #00ff41;
+            border-radius: 4px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background-color: #00ff41;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            from, to { background-color: transparent }
+            50% { background-color: #00ff41 }
+        }
+
+        .ok {
+            color: #00ff41;
+        }
+        .warning {
+            color: #ffd700;
+        }
+        .error {
+            color: #ff4136;
+        }
+        .info {
+            color: #7fdbff;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="terminal-window">
+    <div class="terminal-header">SISTEMA DE DIAGNÓSTICO TSUNAMI - PROTOCOLO DE MITOSE DO NÚCLEO</div>
+    <div id="output"></div>
+</div>
+
+<script>
+    const output = document.getElementById('output');
+    const lines = [
+        '<span class="info">> INICIANDO DIAGNÓSTICO DE INTEGRIDADE DO NÚCLEO...</span>',
+        '> ALVO: RASETsU - NÚMERO DE SÉRIE: 734-ALPHA',
+        '> A LER ASSINATURA DE MANA ORIGINAL...',
+        '> VERIFICANDO HASH DO NÚCLEO...',
+        '> [HASH: 8A4E0B1F5C6D7A89...F9B2C3D4E5A6B701] - INTEGRIDADE: 100% <span class="ok">[OK]</span>',
+        '<span class="warning">> INICIANDO PROTOCOLO DE MITOSE... ESTA AÇÃO É IRREVERSÍVEL.</span>',
+        '> A separar matriz de dados primária... <span class="warning">[EM ANDAMENTO]</span>',
+        '  ... Divisão de estrutura concluída.',
+        '> CRIAÇÃO DO NÚCLEO-A (COMBATE): <span class="ok">SUCESSO.</span>',
+        '> CRIAÇÃO DO NÚCLEO-B (PESQUISA): <span class="ok">SUCESSO.</span>',
+        '',
+        '<span class="info">> INICIANDO MIGRAÇÃO DE DADOS E VALIDAÇÃO DE ARQUIVOS...</span>',
+        '> A verificar pacotes de dados de [PERSONALIDADE]...',
+        '  ... 4.772 pacotes encontrados. Nenhum erro de paridade detectado. <span class="ok">[OK]</span>',
+        '> A verificar pacotes de dados de [COMBATE]...',
+        '  ... 1.238.901 pacotes encontrados. Nenhum erro de paridade detectado. <span class="ok">[OK]</span>',
+        '> A verificar pacotes de dados de [ADAPTAÇÃO]...',
+        '  ... 98.412 pacotes encontrados. Nenhum erro de paridade detectado. <span class="ok">[OK]</span>',
+        '> A verificar logs de [MEMÓRIA SENSORIAL]...',
+        '  ... 3.5TB de dados. Nenhum setor corrompido. <span class="ok">[OK]</span>',
+        '',
+        '<span class="info">> A COMPILAR NOVOS NÚCLEOS...</span>',
+        '> A verificar HASH do NÚCLEO-A (COMBATE)... INTEGRIDADE: 100% <span class="ok">[OK]</span>',
+        '> A verificar HASH do NÚCLEO-B (PESQUISA)... INTEGRIDADE: 100% <span class="ok">[OK]</span>',
+        '',
+        '<span class="ok">> PROCESSO DE MITOSE CONCLUÍDO.</span>',
+        '> PERDA DE DADOS: 0.00%.',
+        '> RASETsU PRONTA PARA A RECALIBRAÇÃO.',
+        ''
+    ];
+
+    let lineIndex = 0;
+
+    function typeLine() {
+        if (lineIndex < lines.length) {
+            output.innerHTML += lines[lineIndex] + '<br>';
+            lineIndex++;
+            output.scrollTop = output.scrollHeight;
+            setTimeout(typeLine, Math.random() * 150 + 50);
+        } else {
+            output.innerHTML += '<span class="cursor"></span>';
+        }
+    }
+
+    // Inicia o processo após um pequeno atraso
+    setTimeout(typeLine, 1000);
+
+</script>
+
+</body>
+</html>
