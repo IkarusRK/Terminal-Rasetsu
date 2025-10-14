@@ -2,7 +2,7 @@ const output = document.getElementById('output');
 
 const lines = [
     { type: 'log', text: '<span class="info">> INICIANDO DIAGNÓSTICO DE INTEGRIDADE DO NÚCLEO...</span>' },
-    { type: 'log', text: '> ALVO: RASETsU - NÚMERO DE SÉRIE: 734-ALPHA' },
+    { type: 'log', text: '> ALVO: RASETSU - NÚMERO DE SÉRIE: 734-ALPHA' },
     { type: 'log', text: '> A LER ASSINATURA DE MANA ORIGINAL...' },
     { type: 'log', text: '> VERIFICANDO HASH DO NÚCLEO...' },
     { type: 'log', text: '> [HASH: 8A4E0B1F5C6D7A89...F9B2C3D4E5A6B701] - INTEGRIDADE: 100% <span class="ok">[OK]</span>' },
@@ -30,7 +30,7 @@ const lines = [
     { type: 'log', text: '' },
     { type: 'log', text: '> PERDA DE DADOS: 0.00%.' },
     { type: 'log', text: '> DURAÇÃO TOTAL DO PROCEDIMENTO: 08:30:17.'},
-    { type: 'log', text: '> RASETsU PRONTA PARA A RECALIBRAÇÃO.' },
+    { type: 'log', text: '> RASETSU PRONTA PARA A RECALIBRAÇÃO.' },
 ];
 
 let lineIndex = 0;
